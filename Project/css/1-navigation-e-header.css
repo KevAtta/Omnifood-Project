@@ -1,0 +1,114 @@
+/**************************************************/
+/* NAVIGATION + HEADER */
+/**************************************************/
+.logo {
+  height: 2.2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #fdf2e9;
+
+  /* al posto di usare un padding per la barra si usa, questa volta, una */
+  /* grandezza fissa. Quetso permetterà alla barra di rimanere fissa */
+  /* in alto anche quando si scrolla in basso la pagina. Anche usare */
+  /* un padding sarebbe andato bene */
+  height: 9.6rem;
+  padding: 0 4.8rem;
+
+  /* necessario per l'applicazione mobile */
+  position: relative;
+}
+
+/* perchè si aggiunge questo? Perchè cosi facendo se l'utente va a restringere */
+/* la finestra gli rimane sempre un margine ai lati dei pixel sotto riportati */
+/* ovviamente si aggiunge alla sezione hero, cioè quella grande */
+.hero {
+  padding: 0 3.2rem 0 3.2rem;
+}
+
+.main-nav-list {
+  list-style: none;
+
+  display: flex;
+  gap: 4.8rem;
+
+  /* questo centra i link e lo si mette perchè è bene mettere i link */
+  /* come inline block per far attuare correttamente il padding */
+  align-items: center;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 1.8rem;
+
+  transition: all 0.3s;
+
+  display: inline-block;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+  color: #cf711f;
+}
+
+/* questo vuol dire che devono essere presti entrambe le classi, */
+/* ovvero quando un tag ha sia .main-nav-link che .btn-special */
+/* allora eseguirà quello che c'è fra graffe */
+.main-nav-link.btn-special:link,
+.main-nav-link.btn-special:visited {
+  padding: 1.2rem 2.4rem;
+  background-color: #e67e22;
+  border-radius: 9px;
+  color: #fff;
+}
+
+.main-nav-link.btn-special:hover,
+.main-nav-link.btn-special:active {
+  background-color: #cf711f;
+}
+
+/* NAVIGAZIONE MOBILE */
+/* parte per la visualizzazione per telefoni */
+
+.btn-mobile-nav {
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  display: none;
+}
+
+.icon-mobile-nav {
+  height: 4.8rem;
+  width: 4.8rem;
+  color: #333;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+  display: none;
+}
+
+/* BARRA FISSA IN ALTO */
+.sticky .header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 8rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.97);
+  box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
+}
+
+.sticky .section-hero {
+  margin-top: 9.6rem;
+}

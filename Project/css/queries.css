@@ -1,0 +1,324 @@
+/* l'ordine qui è importante. Se si creano query che creano conflitto */
+/* (per esempio se anche la seconda cambasse il colore dello sfondo) */
+/* allora solamente l'ultima query scritta verrebbe applicata. */
+/* Quindi invertendo l'ordine delle query qui sotto si cambierebbe */
+/* anche l'ordine con le quali esse vengono applicate */
+/* @media (max-width: 1200px) {
+  .section-hero {
+    background-color: orangered;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-hero {
+    border: 20px dashed blue;
+  }
+} */
+
+/* Per le query si usa il REM come nell'html, però le query non fanno fede */
+/* a ciò che c'è scritto nell'html. Qui invece 1 rem = 1em = 16px. */
+/* Em sta per corrent font-size. Si fa tutto quseto anche perchè il rem ha */
+/* spesso alcuni bag in alcuni browser quando si usano le query */
+
+/* Sotto 1350px per desktop più piccoli */
+/* Il calcolo è 1350/16 = 84.375 */
+
+@media (max-width: 84em) {
+  /* quello che si vuole far è portare la sezione hero, che è grande */
+  /* 1300px a 1200px come tutto il resto della pagina */
+  .hero {
+    /* importante, il rem qui sotto non ha nulla a che fare l'em sopra */
+    /* ma è il rem che si è usato nell'html */
+    max-width: 120rem;
+  }
+
+  .heading-primary {
+    font-size: 4.4rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Sotto 1200px per tablet */
+/* 1200/16 = 75 */
+@media (max-width: 75em) {
+  html {
+    /* 9px sono sufficienti per questa grandezza quindi: */
+    /* 9px / 16px = 0.56*/
+    font-size: 56%;
+  }
+
+  .heading-secondary {
+    font-size: 3.6rem;
+  }
+
+  .heading-tertiary {
+    font-size: 2.4rem;
+  }
+
+  .grid {
+    column-gap: 4.8rem;
+    row-gap: 6.4rem;
+  }
+
+  .header {
+    padding: 0 3.2rem;
+  }
+
+  .hero {
+    gap: 4.8rem;
+  }
+
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+
+  .testimonials-container {
+    padding: 9.6rem 3.2rem;
+  }
+}
+
+/* sotto 944px (tablet) */
+
+@media (max-width: 58em) {
+  html {
+    /* 8px/16px */
+    font-size: 50%;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 8rem;
+    gap: 6.4rem;
+  }
+
+  .hero-img {
+    width: 50%;
+  }
+
+  .hero-text-box,
+  .hero-img-box {
+    text-align: center;
+  }
+
+  .delivered-meals {
+    justify-content: center;
+    margin-top: 3.2rem;
+  }
+
+  .logos img {
+    height: 2.4rem;
+  }
+
+  .step-number {
+    font-size: 7.4rem;
+  }
+
+  .meal-content {
+    padding: 2.4rem 3.2rem 2.4rem 3.2rem;
+  }
+
+  .section-testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .cta {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  .button {
+    margin-top: 1.2rem;
+  }
+
+  /* NAVIGAZIONE MOBILE */
+  .btn-mobile-nav {
+    display: block;
+  }
+
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.97);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all 0.5s ease-in;
+
+    /* nascondere la navigazione */
+
+    /* none non permette di fare animazioni */
+    /* display: none; */
+
+    /* step per implementare il menu a scomparsa */
+    /* 1)  Nasconderlo visualmente*/
+    opacity: 0;
+
+    /* 2) Renderlo inaccessibile dal mouse e dalla tastiera */
+    pointer-events: none;
+
+    /* 3) nasconderlo dai lettori */
+    visibility: hidden;
+
+    /* necessario per fare una animazione che vada da
+    destra verso sinsstra. Con questo comando sposta
+    il tutto a destra, fuori dalla inquadratura  */
+    transform: translateX(100%);
+  }
+
+  .nav-open .main-nav {
+    opacity: 1;
+
+    pointer-events: auto;
+    visibility: visible;
+
+    /* sposta la scritta da destra verso sinistra sino al centro
+    della schermata */
+    transform: translateX(0);
+  }
+
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+    gap: 4.8rem;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 3rem;
+  }
+}
+
+/* sotto 700px (piccoli tablet) */
+
+@media (max-width: 44em) {
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .diets {
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+
+  .heading-secondary {
+    font-size: 4.8rem;
+  }
+
+  .pricing-plan {
+    width: 100%;
+  }
+
+  .grid--footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .nav-col {
+    grid-row: 1;
+    grid-column: span 2;
+  }
+
+  .address-col,
+  .logo-col {
+    grid-column: span 3;
+  }
+}
+
+/* sotto 550px (telefoni) */
+
+@media (max-width: 34em) {
+  .grid {
+    row-gap: 4.8rem;
+  }
+
+  .grid--2-cols,
+  .grid--3-cols,
+  .grid--4-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.4rem 1.6rem;
+  }
+
+  .hero {
+    padding: 0 3.2rem;
+  }
+
+  .hero-img {
+    width: 80%;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+
+  .logos img {
+    height: 1.2rem;
+  }
+
+  .step-img-box:nth-child(2) {
+    grid-row: 1;
+  }
+
+  .step-img-box:nth-child(6) {
+    grid-row: 5;
+  }
+
+  .step-img-box {
+    transform: translateY(2.4rem);
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.4rem;
+  }
+
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-img-box {
+    height: 32rem;
+    grid-row: 1;
+  }
+
+  .cta-text-box {
+    padding: 3.2rem;
+  }
+}
+
+/* questo l'ho fato io da solo, ed è per pc in 4k */
+@media (min-width: 240em) {
+  html {
+    font-size: 25px;
+  }
+}

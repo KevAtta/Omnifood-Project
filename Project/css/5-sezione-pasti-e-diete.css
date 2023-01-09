@@ -1,0 +1,191 @@
+/* La classe subheading è stata definita già nella sezione "sezione-how */
+/* il codice viene copiato di seguito */
+.subheading {
+  /* mettiamo block perchè span è un elemento in-line */
+  /* per come è costruito il layout abbiamo quindi bisogno  */
+  /* di un elemento che sia un blocco */
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #cf711f;
+  text-transform: uppercase;
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.75px;
+}
+
+/* anche la classe heading-secondary è stata gia definita nella sezione "sezione-how" */
+/* viene anche questa comunque ricopaita di seguito */
+.heading-secondary {
+  font-weight: 800;
+  color: #333;
+  letter-spacing: -0.5px;
+
+  font-size: 4.4rem;
+  line-height: 1.2;
+
+  margin-bottom: 9.6rem;
+}
+
+/* anche questa è stata copiata dal css facente riferimetno ad un'altra sezione */
+.heading-tertiary {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2;
+}
+
+/* INIZIO EFFETTIVO */
+
+.section-meals {
+  padding: 3.2rem 4.8rem 4.8rem 4.8rem;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.meal-img {
+  width: 100%;
+}
+
+.meal {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  /* questa proprietà dice che qualsiasi cosa sborda dal box deve essere nascosto */
+  /* quindi gli angoli dell'immagine che escoono dato che abbiamo */
+  /* arrotondato gli angoli del box che sbordano vengono eliminati */
+  overflow: hidden;
+
+  /* proprietà necessaria per fare l'animazione del box verso l'alto */
+  transition: all 0.4s;
+}
+
+/* con questa proprietà facciamo si che quando si passa sopra ai boc*/
+/* questi si spostino di un po verso l'alto creando un efetto */
+/* di movimento */
+.meal:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+
+.meal-content {
+  padding: 4.8rem;
+}
+
+.meal-tags {
+  margin-bottom: 1.2rem;
+  display: flex;
+  gap: 0.4rem;
+}
+
+.tag {
+  /* questo perchè cosi possiamo applicare del padding */
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  /* background-color: #51cf66; */
+  color: #333;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.tag--paleo {
+  background-color: #ffd43b;
+}
+
+.tag--vegan {
+  background-color: #94d82d;
+}
+
+.tag--vegetarian {
+  background-color: #51cf66;
+}
+
+.meal-title {
+  font-size: 2.4rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 3.2rem;
+}
+
+.meal-attributes {
+  list-style: none;
+
+  /* per distanziare tutti gli elementi si usa un flex */
+  /* nulla toglie che si poteva usare anche un padding e */
+  /* rimuoverlo poi nell'ultimo elemento */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.meal-attribute {
+  font-size: 1.8rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.meal-icon {
+  height: 2.4rem;
+  width: 2.4rem;
+  color: #cf711f;
+}
+
+strong {
+  font-weight: 500;
+}
+
+.list {
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.list-item {
+  font-size: 1.8rem;
+
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.list-icon {
+  width: 3rem;
+  height: 3rem;
+  color: #e67e22;
+}
+
+.all-recepies {
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+/* il tipo crea queste classi per far si che possano essere riutilizzabili */
+/* anche in altre parti del codice */
+.margin-bottom-sm {
+  margin-bottom: 4.8rem !important;
+}
+
+.link:link,
+.link:visited {
+  display: inline-block;
+  text-decoration: none;
+  color: #e67e22;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #e67e22;
+
+  transition: all 0.3s;
+}
+
+.link:hover,
+.link:active {
+  color: #cf711f;
+  /* si mette questo con trasparent perchè altrimenti quando si passa sopra al link */
+  /* tutta la pagina si muove di 1px che è quello che viene messo */
+  /* per fare la sottolineatura */
+  border-bottom: 1px solid transparent;
+}

@@ -1,0 +1,149 @@
+/**************************************************/
+/* SEZIONE HERO */
+/**************************************************/
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* stiamo usando il grid, e per centrare questo usando il grid possiamo scrivere */
+  /* il seguente comando NEL GRID CONTAINER*/
+  align-items: center;
+  /* rem = carattere dell'elemento radice, 1rem = 16px */
+  /* abbiamo settato però nella proprietà "HTML" una grandezza di 10px */
+  /* quindi 1 rem = 10px. Questa cosa la si può cambiare a piacimento */
+  gap: 9.6rem;
+
+  max-width: 130rem;
+  margin: 0 auto;
+}
+
+.hero-img {
+  width: 100%;
+}
+
+.section-hero {
+  background-color: #fdf2e5;
+  /* usiamo il padding per preservare lo sfondo, altrimenti si poteva usare */
+  /* anche un margin. Il primo valore sopra e sott ed il secondo dx e sx */
+  padding: 4.8rem 0 9.6rem 0;
+}
+
+.heading-primary {
+  font-size: 5.2rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #333;
+  /* qui viene usato il pixel perchè è una grandezza molto piccola */
+  letter-spacing: -0.5px;
+
+  margin-bottom: 3.2rem;
+}
+
+.hero-description {
+  font-size: 2rem;
+  line-height: 1.6;
+
+  margin-bottom: 4.8rem;
+}
+
+.btn:link,
+.btn:visited {
+  background-color: #e67e22;
+  font-size: 2rem;
+  color: #fff;
+  /* per far si che si applichi corettamente il padding, dobbiamo rendere prima questo elemento */
+  /* un elemento in-line */
+  display: inline-block;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  text-decoration: none;
+  font-weight: 600;
+
+  /* permette di fare una transizione usando due valori */
+  /* creando una ANIMAZIONE */
+  /* IMPORTANTE! Mettere questo nello "stato" originale */
+  /* 1 = quanto tempo deve durare l'animazione */
+  transition: all 0.3s;
+}
+
+/* visited fa riferimento a come cambierà il link dopo averlo premuto */
+.btn--full:link,
+.btn--full:visited {
+  background-color: #e67e22;
+  color: #fff;
+}
+
+/* active fa riferimento quando tieni premuto sul link */
+/* hover quando ci passi sopra */
+.btn--full:hover,
+.btn--full:active {
+  background-color: #cf711f;
+}
+
+.margin-right {
+  /* important dice che qualsiasi siano gli stili applicati */
+  /* a questo link, questo margine ha la priorità */
+  margin-right: 1.6rem !important;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+  background-color: #fff;
+  color: #555;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+  background-color: #fdf2e9;
+  color: #555;
+
+  /* questo serve per fare la stessa cosa che si fa con un border */
+  /* solo che in questo modo ti fa il bordo nella parte interna */
+  /* per vedere le differenze riattiva la proprietà border */
+  /* border: 3px solid #fff; */
+  box-shadow: inset 0 0 0 3px #fff;
+}
+
+/**************************************************/
+/* SEZIONE PER FOTO IN SEQUENZA NELL'HERO SECTION */
+/**************************************************/
+
+.delivered-meals {
+  display: flex;
+  margin-top: 8rem;
+
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.delivered-imgs {
+  display: flex;
+}
+
+.delivered-imgs img {
+  height: 4.8rem;
+  width: 4.8rem;
+  border-radius: 50%;
+
+  /* per qualche motivo non funziona il margin negativo nel delivered-imgs */
+  /* ma va invece inserito qui, nell'oggetto stesso */
+  margin-right: -1.6rem;
+
+  border: 3px solid #fdf2e9;
+}
+
+/* si elimina il margine negativo dall'ultima foto cosicchè possa venire applicato */
+/* il margine e spostare la scritta un pò più a destra */
+.delivered-imgs img:last-child {
+  margin-right: 0;
+}
+
+.delivered-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.delivered-text span {
+  color: #cf711f;
+  font-weight: 700;
+}
